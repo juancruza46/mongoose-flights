@@ -5,15 +5,15 @@
   <title><%= title %></title>
 </head>
 <body>
-  <h1><%= title %></h1>
+  <%- include('../layout', { title: 'All Flights', body: flights }) %>
 
-  <% flights.forEach(flight => { %>
-    <p>
-      Airline: <%= flight.airline %><br>
-      Flight No.: <%= flight.flightNo %><br>
-      Airport: <%= flight.airport %><br>
-      Departs: <%= flight.departs %>
-    </p>
-  <% }); %>
+<% flights.forEach(flight => { %>
+  <p>
+    Airline: <%= flight.airline %><br>
+    Flight No.: <%= flight.flightNo %><br>
+    Airport: <%= flight.airport %><br>
+    Departs: <%= flight.departs.toLocaleString() %>
+  </p>
+<% }); %>
 </body>
 </html>

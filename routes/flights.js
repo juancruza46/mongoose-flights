@@ -8,7 +8,7 @@ const Flight = require('../models/Flight');
 router.get('/', async (req, res) => {
     try {
       const flights = await Flight.find({});
-      res.render('flights/index', { title: 'Flights List', flights });
+      res.render('flights/index', { flights, title: 'Flights List' });
     } catch (err) {
       console.error('Error fetching flights:', err);
       res.status(500).send('Internal Server Error');
