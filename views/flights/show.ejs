@@ -8,3 +8,12 @@
     <p>Airport: <%= flight.airport %></p>
     <p>Departs: <%= flight.departs %></p>
 </div>
+
+<h2>Destinations</h2>
+<ul>
+  <% flight.destinations.forEach(destination => { %>
+    <li>Airport: <%= destination.airport %>, Arrival: <%= destination.arrival %></li>
+  <% }); %>
+</ul>
+
+<a href="/flights/<%= flight._id %>/destinations/new">Add Destination</a>
