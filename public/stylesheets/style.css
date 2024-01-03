@@ -1,8 +1,33 @@
+/* revisit stylesheets, not working check connection */
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family:Arial;
 }
 
-a {
-  color: #00B7FF;
+nav {
+  background-color:navy;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav li {
+  float: left;
+}
+
+nav a {
+  display: block;
+  color: white;
+  background-color: navy;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: grey;
+  color: white;
 }

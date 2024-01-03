@@ -1,19 +1,15 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
-</head>
-<body>
-  <%- include('../layout', { title: 'All Flights', body: flights }) %>
+<%- include('../layout', { title: 'All Flights' }) %>
 
-<% flights.forEach(flight => { %>
-  <p>
-    Airline: <%= flight.airline %><br>
-    Flight No.: <%= flight.flightNo %><br>
-    Airport: <%= flight.airport %><br>
-    Departs: <%= flight.departs.toLocaleString() %>
-  </p>
-<% }); %>
-</body>
-</html>
+<h1>All Flights</h1>
+
+<div class="container">
+  <% flights.forEach(flight => { %>
+    <div class="flight-card">
+      <p>Airline: <%= flight.airline %></p>
+      <p>Flight No.: <%= flight.flightNo %></p>
+      <p>Airport: <%= flight.airport %></p>
+      <p>Departs: <%= flight.departs %></p>
+      <a href="/flights/<%= flight._id %>">Details</a>
+    </div>
+  <% }); %>
+</div>

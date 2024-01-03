@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+//new destination
+const destinationSchema = require('./destination');
 
 const airlineEnum =  ['American', 'Southwest', 'United'];
 const airportEnum = ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'];
@@ -24,6 +26,11 @@ const flightSchema = new mongoose.Schema({
       departs: {
         type: Date,
         default: () => new Date().setFullYear(new Date().getFullYear() + 1),
+      },
+      //new dest property
+      destinations: {
+        type: [destinationSchema],
+        default: [],
       },
     });
 
