@@ -1,7 +1,8 @@
-/* revisit stylesheets, not working check connection */
+
 body {
   font-family:Arial;
 }
+/*-----------Style the nav bar  ------------------*/
 
 nav {
   background-color:navy;
@@ -30,4 +31,25 @@ nav a {
 nav a:hover {
   background-color: grey;
   color: white;
+}
+/*-----------Style table for all flights ------------------*/
+.flight-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.flight-table th, .flight-table td {
+  border: 1px solid grey;
+  padding: 8px;
+  text-align: left;
+}
+
+.flight-table th {
+  background-color: #f2f2f2;
+}
+
+.flight-table a {
+  color: #3498db;
+  font-weight: bold;
 }
