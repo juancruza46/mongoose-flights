@@ -2,7 +2,7 @@
 body {
   font-family:Arial;
 }
-/*-----------Style the nav bar  ------------------*/
+/*-----------Style the nav bar  -------------------------*/
 
 nav {
   background-color:navy;
@@ -52,4 +52,35 @@ nav a:hover {
 .flight-table a {
   color: #3498db;
   font-weight: bold;
+}
+/*-----------Style table for sub docs (destinations)--------*/
+.flight-details {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.destinations-list {
+  list-style: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+.destinations-list li {
+  margin-bottom: 10px;
+}
+
+.add-destination-link {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: navy;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-destination-link:hover {
+  background-color: grey;
 }

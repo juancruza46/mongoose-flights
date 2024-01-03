@@ -2,7 +2,7 @@
 
 <h1>Flight Details</h1>
 
-<div>
+<div class="flight-details">
     <p>Airline: <%= flight.airline %></p>
     <p>Flight No.: <%= flight.flightNo %></p>
     <p>Airport: <%= flight.airport %></p>
@@ -10,10 +10,13 @@
 </div>
 
 <h2>Destinations</h2>
-<ul>
+<ul class="destinations-list">
   <% flight.destinations.forEach(destination => { %>
-    <li>Airport: <%= destination.airport %>, Arrival: <%= destination.arrival %></li>
+    <li>
+        <strong>Airport:</strong> <%= destination.airport %><br>
+        <strong>Arrival:</strong> <%= destination.arrival %>
+    </li>
   <% }); %>
 </ul>
 
-<a href="/flights/<%= flight._id %>/destinations/new">Add Destination</a>
+<a class="add-destination-link" href="/flights/<%= flight._id %>/destinations/new">Add Destination</a>
