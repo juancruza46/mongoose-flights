@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Flight = require('../models/Flight');
-
+const Ticket = require('../models/Ticket');
 // Render the flights index page
 router.get('/', async (req, res) => {
     try {
@@ -32,13 +32,15 @@ router.post('/', async (req, res) => {
 // Render flight details
 router.get('/:id', async (req, res) => {
     try {
-        const flight = await Flight.findById(req.params.id).populate('destinations');
-        res.render('flights/show', { title: 'Flight Details', flight, body: '' });
+      const flight = await Flight.findById(req.params.id);
+      const tickets = await Ticket.find({ flight: flight._id });
+  
+      res.render('flights/show', { title: 'Flight Details', flight, tickets, body: '' });
     } catch (err) {
-        console.error('Error fetching flight details:', err);
-        res.status(500).send('Internal Server Error');
+      console.error('Error fetching flight details and tickets:', err);
+      res.status(500).send('Internal Server Error');
     }
-});
+  });
 
 // Show form to add a new destination
 router.get('/:id/destinations/new', async (req, res) => {
@@ -63,5 +65,29 @@ router.post('/:id/destinations', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
+ //ticket form 
+ router.get('/:id/tickets/new', async (req, res) => {
+    try {
+      const flight = await Flight.findById(req.params.id);
+      res.render('tickets/new', { title: 'New Ticket', flight, body: '' });
+    } catch (err) {
+      console.error('Error fetching flight details for adding ticket:', err);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+  
+  // Add a new ticket
+  router.post('/:id/tickets', async (req, res) => {
+    try {
+      const flight = await Flight.findById(req.params.id);
+      req.body.flight = flight._id;
+  
+      await Ticket.create(req.body);
+      res.redirect(`/flights/${req.params.id}`);
+    } catch (err) {
+      console.error('Error adding new ticket:', err);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+  
 module.exports = router;

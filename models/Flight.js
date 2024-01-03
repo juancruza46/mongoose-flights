@@ -39,6 +39,7 @@ const flightSchema = new mongoose.Schema({
   }
 });
 
+
 // Define Flight Model
 const Flight = mongoose.model('Flight', flightSchema);
 
