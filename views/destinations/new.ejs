@@ -1,6 +1,7 @@
 <%- include('../layout', { title: 'Add Destination' }) %>
 
 <h1>Add Destination</h1>
+<p>Below select an airport of your choice along with the time of arrival.</p>
 
 <form action="/flights/<%= flight._id %>/destinations" method="POST">
   <label for="airport">Airport:</label>
